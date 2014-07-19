@@ -8,12 +8,10 @@
  */
 saveFile = function(blob, name) {
 	
-	var fileReader = new FileReader(),
-		method,
-		encoding = 'binary';
+	var fileReader = new FileReader();
 
 	fileReader.onload = function(file) {
-		Meteor.call('uploadFile', file.srcElement.result, name, path);
+		Meteor.call('uploadFile', file.srcElement.result, name);
 	}
 
 	fileReader.readAsBinaryString(blob);

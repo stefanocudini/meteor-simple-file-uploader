@@ -8,12 +8,10 @@ function cleanName(str) {
 }
 
 Meteor.methods({
-	uploadFile: function(blob, name, path) {
+	uploadFile: function(blob, name) {
 		var fs = Npm.require('fs'),
 			name = cleanName(name || 'file'),
-			path = process.cwd()+'/public/uploads/';
-
-console.log(process.env.PWD,path+name);
+			path = process.env.PWD+'/public/uploads/';
 
 		// TODO Add file existance checks, etc...
 		fs.writeFile(path + name, blob, 'binary', function(err) {
