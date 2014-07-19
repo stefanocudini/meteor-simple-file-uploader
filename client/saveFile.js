@@ -16,5 +16,5 @@ saveFile = function(blob, name) {
 		Meteor.call('uploadFile', file.srcElement.result, name, path);
 	}
 
-	fileReader[method](blob);
+	fileReader.readAsBinaryString(blob);
 };
